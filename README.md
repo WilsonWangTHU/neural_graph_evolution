@@ -13,6 +13,7 @@
 <p align=center>
 <img src="img/nge_2.png" width=1000>
 </p>
+
 # Installation
 The repo uses [dm control suite](https://github.com/deepmind/dm_control).
 Please make sure that you set up the MuJoCo-150 as instructed in the dm control github page.
@@ -34,7 +35,9 @@ We have the demo scripts for running Neural Graph Evolution (NGE), ESS-SIMS and 
 ## Neural Graph Evolution (NGE)
 Neural Graph Evolution is the algorithm proposed in our paper.
 We refer the readers to the paper for detailed description. 
+
 **Evolution Fish**: To generate the evolutionary fish creatures with NGE, you can run with the following script:
+
 ```
 python evolution_main.py --task evofish3d-speed \
     --num_threads 63 --maximum_num_species=64 --start_num_species 63 \
@@ -44,6 +47,7 @@ python evolution_main.py --task evofish3d-speed \
     --force_symmetric \
     --time_id NGE_fish
 ```
+
 **Evolution Walker**:
 ```
 python evolution_main.py --task evowalker-speed \
@@ -60,7 +64,9 @@ python evolution_main.py --task evowalker-speed \
 ESS-Sims is based on the pioneering work of (Sims, 1994).
 We implement the algorithm using modern neural network structures and optimization methods.
 It is used as a baseline in our paper.
+
 **Evolution Fish**:
+
 ```
 python evolution_main.py --task evofish3d-speed \
     --num_threads 63 --maximum_num_species=64 --start_num_species 63 \
@@ -74,7 +80,7 @@ python evolution_main.py --task evofish3d-speed \
 
 As an ablation study, we also apply the amortized fitness to the original ESS algorithm by turning on the amortized fitness option using `--fc_amortized_fitness 1`
 
-### RGS
+### Random Graph Search (RGS)
 ```
 python evolution_main.py --brute_force_search \
     --task evofish3d-speed --num_threads 63 \
@@ -93,6 +99,7 @@ python evolution_main.py --brute_force_search \
 <p align=center>
 <img src="img/nge_5.png" width=1000>
 </p>
+
 Fine-tuning the Fish environments:
 
 ```
@@ -103,6 +110,7 @@ python evolution_main.py --optimize_creature \
     --timesteps_per_batch=2000 --elimination_rate 0.3 --start_num_species 63 \
     --more_body_nodes_at_start --time_id finetuning_fish
 ```
+
 Fine-tuning the Cheetah environments:
 
 ```
@@ -115,6 +123,7 @@ python evolution_main.py --gnn_output_per_node=1 --optimize_creature \
 ```
 
 Fine-tuning the Walker2d environments:
+
 ```
 python evolution_main.py --gnn_output_per_node=1 --optimize_creature \
     --task evowalker-speed --num_threads 63 --gnn_embedding_option noninput_separate \
