@@ -1,6 +1,6 @@
 gym==0.9.4
 mujoco-py==0.5.7
-tensorflow==1.0.1
+tensorflow==1.12.2
 termcolor
 git+git://github.com/deepmind/dm_control.git@merel_2017_humanoid
 visdom
